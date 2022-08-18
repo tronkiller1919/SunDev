@@ -1,0 +1,92 @@
+@import './utility.scss';
+
+.container {
+  padding: 1.5rem;
+  padding-right: 6rem;
+  height: 100vh;
+
+  display: flex;
+  .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    column-gap: 1rem;
+
+    & .page-content {
+      padding: 2rem;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    & > :nth-child(2) {
+      overflow: hidden;
+      position: relative;
+      background-color: $bg-orange-color;
+      border-radius: 1rem;
+
+      p {
+        &.title {
+          font-size: clamp(1.2rem, 2.2vw, 3rem);
+          font-weight: $font-bold;
+          color: $title-color;
+          margin-bottom: 0.5em;
+        }
+
+        &.description {
+          font-size: clamp(0.8rem, 1.8vh, 1.5rem);
+          letter-spacing: 0.125rem;
+          line-height: 1.5rem;
+          font-weight: $font-medium;
+          color: $paragraph-color;
+          text-align: center;
+        }
+      }
+
+      & .description-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+        align-items: center;
+        width: 100%;
+        & .icons-wrap {
+          display: flex;
+          width: 100%;
+          justify-content: space-evenly;
+          & > * {
+            transform: scale(1.2);
+
+            &:hover {
+              transform: scale(1.3);
+              transition: transform 0.2s ease-out;
+            }
+            transition: transform 0.2s ease-out;
+          }
+        }
+      }
+
+      & svg {
+        position: absolute;
+        &.wave-top {
+          top: 0;
+          transform: scale(2.5) translate(-25%, 10%) scaleX(-1);
+        }
+        &.wave-bottom {
+          bottom: 0;
+          transform: scale(2);
+        }
+        &.blob {
+          top: 0;
+          opacity: 0.2;
+          transform: scale(0.5) translateX(100%);
+        }
+      }
+    }
+  }
+}

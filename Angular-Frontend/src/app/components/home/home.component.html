@@ -1,0 +1,134 @@
+<div class="wrapper order-wrapper">
+  <div class="orders-header">
+    <h2 class="title">Return Order Managment</h2>
+    <a class="logout" (click)="logout()">Logout</a>
+  </div>
+
+  <div class="section-user-interactions">
+    <div class="user-input">
+      <form
+        [formGroup]="orderComponentFormData"
+        (ngSubmit)="reviewOrder()"
+        class="form-wrapper"
+      >
+        <div class="input-group">
+          <label for="customerName">Customer Name</label>
+          <input type="text" id="customerName" formControlName="customerName" />
+          <p
+            class="error-text"
+            *ngIf="
+              !orderComponentFormData.controls['customerName'].valid &&
+              orderComponentFormData.controls['customerName'].touched
+            "
+          >
+            Customer name is required
+          </p>
+        </div>
+        <div class="input-group">
+          <label for="phone">Contact Number</label>
+          <input type="text" id="phone" formControlName="contactNumber" />
+          <p
+            class="error-text"
+            *ngIf="
+              !orderComponentFormData.controls['contactNumber'].valid &&
+              orderComponentFormData.controls['contactNumber'].touched
+            "
+          >
+            Invalid number
+          </p>
+        </div>
+        <div class="input-group select-menu-wrap">
+          <label for="componentType">Component Type</label>
+          <div class="drowdown">
+            <select
+              name="Component Type"
+              formControlName="componentType"
+              id="componentType"
+            >
+              <option
+                *ngFor="let componentType of componentTypes"
+                [ngValue]="componentType"
+              >
+                {{ componentType }}
+              </option>
+            </select>
+            <span class="dropdown-arrow"></span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="componentName">Component Name</label>
+          <input
+            type="text"
+            id="componentName"
+            formControlName="componentName"
+          />
+          <p
+            class="error-text"
+            *ngIf="
+              !orderComponentFormData.controls['componentName'].valid &&
+              orderComponentFormData.controls['componentName'].touched
+            "
+          >
+            Component name is required
+          </p>
+        </div>
+        <div class="input-group">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            id="quantity"
+            formControlName="quantity"
+            min="1"
+          />
+          <p
+            class="error-text"
+            *ngIf="
+              !orderComponentFormData.controls['quantity'].valid &&
+              orderComponentFormData.controls['quantity'].touched
+            "
+          >
+            {{
+              orderComponentFormData.controls["quantity"].value <= 0
+                ? "Invalid quantity"
+                : ""
+            }}
+          </p>
+        </div>
+        <div class="button-wrapper">
+          <button
+            type="submit"
+            [disabled]="!orderComponentFormData.valid"
+            class="btn"
+          >
+            Review Order
+          </button>
+          <button
+            type="button"
+            [disabled]="!orderComponentFormData.valid"
+            (click)="cancelOrder()"
+            class="btn"
+          >
+            Clear
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal user-display" *ngIf="modalOpen">
+      <div class="response-data">
+        <div class="modal-header">
+          <p class="title modal-title">Order details</p>
+          <a href="#!" class="modal-close-icon" (click)="closeModal()"
+            >&#10006;</a
+          >
+        </div>
+        <div class="modal-body">
+          <app-processed-data-list
+            [componentData]="processedComponentData"
+            (modalOpenEmitter)="closeModal()"
+          ></app-processed-data-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

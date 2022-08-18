@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: packaging-and-delivery-service
+  error:
+    include-message: true
+
+server:
+  port: 8996
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${server.port}:${spring.application.instance_id:${random.value}}

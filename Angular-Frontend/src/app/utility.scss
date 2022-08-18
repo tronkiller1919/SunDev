@@ -1,0 +1,100 @@
+$font-name: 'Sora', sans-serif;
+$primary-color: hsl(258, 66%, 60%);
+$title-color: hsl(0, 0%, 10%);
+$paragraph-color: hsl(0, 0%, 10%);
+$bg-orange-color: hsl(126, 100%, 88%);
+$bg-orange-color-opacity-50: hsla(34, 82%, 63%, 0.274);
+$danger-color: hsl(0, 100%, 44%);
+$success-color: hsl(120, 100%, 25%);
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+$components-text-color: $bg-orange-color;
+$component-base-width: 500px;
+$component-login-width: min(30vw, $component-base-width);
+$components-signup-width: min(50vw, $component-base-width);
+$dark-color: $paragraph-color;
+.btn {
+  border: none;
+  font-size: clamp(0.8rem, 1.1vw, 1.3rem);
+  font-weight: $font-regular;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+}
+
+.error-text {
+  position: absolute;
+  bottom: -20px;
+  font-size: clamp(0.5rem, 0.7vw, 1rem);
+  color: $danger-color;
+}
+.help-text {
+  transform: translateY(5px);
+  font-size: 0.8rem;
+  color: $success-color;
+}
+.error {
+  opacity: 0.8;
+  color: $danger-color;
+}
+
+.title {
+  font-size: clamp(1.2rem, 3vw, 4rem);
+  font-weight: $font-medium;
+}
+
+.wrapper {
+  color: $components-text-color;
+}
+
+.form-wrapper {
+  margin: 2.5rem 0;
+
+  & .input-group {
+    position: relative;
+    display: grid;
+    & label {
+      font-weight: $font-regular;
+
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    & input {
+      font-weight: $font-medium;
+      font-size: 1rem;
+      border-bottom: 2px solid $bg-orange-color;
+      color: $components-text-color;
+      letter-spacing: 1px;
+
+      &.ng-touched {
+        &.ng-invalid {
+          border-bottom: 2px solid $danger-color;
+        }
+        &.ng-valid {
+          border-bottom: 2px solid $bg-orange-color;
+        }
+      }
+    }
+  }
+}
+
+.login-footer,
+.signup-footer {
+  text-align: center;
+}
+
+.drowdown {
+  position: relative;
+}
+.dropdown-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  // background: red;
+  height: 100%;
+  width: 3rem;
+
+  pointer-events: none;
+}

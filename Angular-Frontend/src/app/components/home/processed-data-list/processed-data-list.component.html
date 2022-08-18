@@ -1,0 +1,45 @@
+<div class="orderPreview">
+  <ul class="list">
+    <li class="field-group">
+      <p class="field-name">Customer Name:</p>
+      <p class="field-value">{{ componentData.customerName.charAt(0).toUpperCase() + componentData.customerName.slice(1) }}</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Customer Number:</p>
+      <p class="field-value">{{ componentData.customerNumber }}</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Component Type:</p>
+      <p class="field-value">{{ componentData.componentType.charAt(0).toUpperCase() + componentData.componentType.slice(1) }}</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Component Name:</p>
+      <p class="field-value">{{ componentData.componentName.charAt(0).toUpperCase() + componentData.componentName.slice(1) }}</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Quantity</p>
+      <p class="field-value">{{ componentData.quantity }}</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Processing charge:</p>
+      <p class="field-value">{{ componentData.processingCharge }} Rs</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Packaging And Delivery Charge:</p>
+      <p class="field-value">{{ componentData.packagingAndDeliveryCharge }} Rs</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Date Of Delivery:</p>
+      <p class="field-value">{{ componentData.dateOfDelivery }}</p>
+    </li>
+    <li class="field-group">
+      <p class="field-name">Order Cost:</p>
+      <p class="field-value">{{ componentData.totalOrderCost }} Rs</p>
+    </li>
+  </ul>
+  <div class="button-wrapper">
+    <button type="button" value="Confirm Order" (click)="confirmOrder()" class="btn btn-order">Place order</button>
+    <button type="button" class="btn btn-edit-order" [disabled]="orderPlaced" (click)="editOrder()">Edit order</button>
+  </div>
+  <p class="order-status">{{ !orderPlaced ? '' : "Your order was placed successfuly!! Sit back an relax we'll do the rest" }}</p>
+</div>

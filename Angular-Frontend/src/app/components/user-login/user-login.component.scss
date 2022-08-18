@@ -1,0 +1,12 @@
+@import '../../utility.scss';
+
+.login-wrapper {
+  width: $component-login-width;
+
+  & .form-wrapper > * + * {
+    margin-top: 2.5rem;
+  }
+  & .login-footer {
+    text-align: center;
+  }
+}

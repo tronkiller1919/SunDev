@@ -1,0 +1,106 @@
+<div class="wrapper signup-wrapper">
+  <h3 class="register-status" *ngIf="isRegistered">
+    Sucessfully Registered!! Redirecting to login page...
+  </h3>
+  <h2 class="title">Sign Up</h2>
+  <form [formGroup]="signUpFormData" (ngSubmit)="signUp()" class="form-wrapper">
+    <div class="input-group">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullName" formControlName="fullName" />
+      <p
+        *ngIf="
+          signUpFormData.controls['fullName']?.touched &&
+          !signUpFormData.controls['fullName'].valid
+        "
+        class="error-text"
+      >
+        Your name is important to us
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        (focus)="clearServerErrorMsg()"
+      />
+      <p
+        *ngIf="
+          (signUpFormData.controls['email']?.touched &&
+            !signUpFormData.controls['email'].valid) ||
+          errorMessage?.includes('Email')
+        "
+        class="error-text"
+      >
+        {{
+          errorMessage?.includes("Email")
+            ? errorMessage
+            : "Looks like we won't be able to contact you"
+        }}
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        (focus)="clearServerErrorMsg()"
+      />
+      <p *ngIf="errorMessage?.includes('Username')" class="error-text">
+        {{ errorMessage }}
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" />
+      <p class="help-text">
+        Password must be atleast 8 characters and must contain atleast one
+        special characters
+        <span
+          *ngIf="
+            signUpFormData.controls['password']?.touched &&
+            !signUpFormData.controls['password'].valid
+          "
+          class="error"
+          >Password does not meet the required requirements</span
+        >
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      <p
+        *ngIf="signUpFormData.controls['confirmPassword']?.errors?.['isInvalid']"
+        class="error-text"
+      >
+        {{signUpFormData.controls['confirmPassword']?.errors?.['message']}}
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="phone">Contact Number</label>
+      <input type="text" id="phone" formControlName="phone" />
+    </div>
+    <div class="signup-footer">
+      <button
+        type="submit"
+        [disabled]="!signUpFormData.valid"
+        class="btn login-btn"
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+
+  <p class="signup-footer">
+    Already have an account?
+    <span class="link login-link"
+      ><a href="#!" routerLink="/login">Login</a></span
+    >
+  </p>
+</div>

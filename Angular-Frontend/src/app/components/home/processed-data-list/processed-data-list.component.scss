@@ -1,0 +1,51 @@
+@import '../../../utility.scss';
+
+.orderPreview {
+  margin-top: 1.5rem;
+
+  & .list > * + * {
+    margin-top: 1rem;
+  }
+  .field-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  & .field-name {
+    font-weight: $font-bold;
+  }
+
+  & .field-value {
+    font-weight: $font-regular;
+  }
+
+  & .button-wrapper {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 5rem;
+  }
+
+  & .btn-order,
+  & .btn-edit-order {
+    outline: 1px solid $paragraph-color;
+    color: $dark-color;
+    font-weight: $font-bold;
+    &:hover {
+      outline: unset;
+      background: $dark-color;
+      color: $components-text-color;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  & .order-status {
+    margin-top: 1rem;
+    text-align: center;
+    color: $success-color;
+    font-size: 1rem;
+    font-weight: $font-bold;
+  }
+}

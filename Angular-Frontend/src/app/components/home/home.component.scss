@@ -1,0 +1,71 @@
+@import '../../utility.scss';
+
+.order-wrapper {
+  position: relative;
+  & .orders-header {
+    & .logout {
+      font-size: clamp(0.8rem, 1vw, 1rem);
+      position: absolute;
+      right: 0;
+    }
+  }
+  & .form-wrapper > * + * {
+    margin-top: 1.8rem;
+
+    &.select-menu-wrap {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+      & label {
+        margin-bottom: 0;
+      }
+      select {
+        color: $paragraph-color;
+        font-weight: $font-medium;
+        font-size: 1rem;
+      }
+    }
+
+    &.button-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      column-gap: 5rem;
+    }
+  }
+
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    box-shadow: hsla(36, 100%, 61%, 0.247) 0px 5px 20px;
+    background: $bg-orange-color;
+    color: $paragraph-color;
+    padding: 2rem;
+
+    & .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $paragraph-color;
+      padding-bottom: 0.8rem;
+      & .modal-title {
+        font-weight: $font-bold;
+      }
+      & .modal-close-icon {
+        color: $paragraph-color;
+        transform: scale(1.45);
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.5);
+          color: $danger-color;
+          transform-origin: center center;
+        }
+
+        transition: all 0.1s ease-in-out;
+      }
+    }
+  }
+}

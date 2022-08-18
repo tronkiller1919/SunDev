@@ -1,0 +1,9 @@
+.prettierrc
+.vscode
+.browserslistrc
+.editorconfig
+.vscode/
+.angular
+angular-app
+dist
+node_modules

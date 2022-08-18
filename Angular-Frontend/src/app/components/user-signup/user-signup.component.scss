@@ -1,0 +1,18 @@
+@import '../../utility.scss';
+
+.signup-wrapper {
+  position: relative;
+  width: $components-signup-width;
+
+  & .form-wrapper > * + * {
+    margin-top: 1.8rem;
+  }
+
+  .register-status {
+    position: absolute;
+    font-weight: $font-regular;
+    top: -20px;
+
+    color: $success-color;
+  }
+}

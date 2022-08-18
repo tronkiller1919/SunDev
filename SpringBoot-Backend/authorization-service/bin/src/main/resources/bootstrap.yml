@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: configuration-server
+      failFast: true
+      retry:
+        maxInterval: 2000
+        maxAttempts: 60
