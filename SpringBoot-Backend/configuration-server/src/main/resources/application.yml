@@ -7,9 +7,8 @@ spring:
         enabled: true
       server:
         git:
-          uri: https://github.com/Vicgok/ReturnOrderPortal_ConfigServer.git
-          username: vicgok
-          password: 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
+          uri: https://github.com/tronkiller1919/SunDev_Config.git
+          default-label: main
           cloneOnStart: true
 
 server:
