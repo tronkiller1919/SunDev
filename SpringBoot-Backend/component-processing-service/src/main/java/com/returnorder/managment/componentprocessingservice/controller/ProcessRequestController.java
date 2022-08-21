@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +33,7 @@ public class ProcessRequestController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 //    Home page to get component details from the user and display the order details for user confirmation
+    @CrossOrigin
     @RequestMapping(value="/process-request",method = RequestMethod.GET)
     public ResponseEntity<?> processComponentOrder(@RequestParam(value = "processRequest") ProcessRequest processRequest) {
 //          Convert Process Request object into Process request DTO
@@ -56,6 +58,7 @@ public class ProcessRequestController {
     }
 
 //      Upon user confirmation store the order details into the database and display the confirmed order details to the user
+    @CrossOrigin
     @RequestMapping(value = "/complete-processing", method = RequestMethod.POST)
     public ResponseEntity<?> completeProcessing() {
 
