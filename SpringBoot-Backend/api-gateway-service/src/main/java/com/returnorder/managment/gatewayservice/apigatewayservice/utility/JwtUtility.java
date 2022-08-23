@@ -53,4 +53,8 @@ public class JwtUtility {
 
     }
 
+	public Logger getLog() {
+		return log;
+	}
+
 }
