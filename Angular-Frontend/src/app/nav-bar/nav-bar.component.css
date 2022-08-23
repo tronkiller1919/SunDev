@@ -1,0 +1,12 @@
+.navbar-default {
+  display: block;
+  text-align: end;
+  padding: 1.5rem;
+  padding-right: 6rem;
+  height:  fit-content;
+  background-color: hsl(258, 51%, 49%);
+  font:'Sora', sans-serif;
+  color: rgb(240, 215, 255);
+  font-weight: bolder;
+  font-size: x-large;
+}

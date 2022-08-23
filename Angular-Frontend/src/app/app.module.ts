@@ -12,9 +12,10 @@ import { RedirectToLoginUserService } from './service/routeGuardService/redirect
 import { CommonModule } from '@angular/common'
 import { ProcessedDataListComponent } from './components/home/processed-data-list/processed-data-list.component'
 import { UserSignupComponent } from './components/user-signup/user-signup.component'
+import { NavBarComponent } from './nav-bar/nav-bar.component'
 
 @NgModule({
-  declarations: [AppComponent, UserLoginComponent, HomeComponent, ProcessedDataListComponent, UserSignupComponent],
+  declarations: [AppComponent, UserLoginComponent, HomeComponent, ProcessedDataListComponent, UserSignupComponent, NavBarComponent],
   imports: [
     BrowserModule,
     CommonModule,
