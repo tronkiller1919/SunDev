@@ -1,0 +1,51 @@
+version: '2'
+services:
+    discovery-service:
+        image: imskabbineni/discovery-service:build1
+        ports:
+            -   9001:8761
+
+    config-service:
+        image: imskabbineni/config-service:build1
+        ports:
+            -   9002:8995
+        depends_on:
+            -   discovery-service
+        environment:
+            eureka.client.enabled: 'true'
+            eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka
+
+    auth-service:
+        image: imskabbineni/auth-service:build1
+        ports:
+            -   9003:8992
+        depends_on:
+            -   discovery-service
+            -   config-service
+        environment:
+            eureka.client.enabled: 'true'
+            eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka
+
+    component-process-service:
+        image: imskabbineni/component-process-service:build1
+        ports:
+            -   9004:8993
+        depends_on:
+            -   discovery-service
+            -   config-service
+            -   auth-service
+        environment:
+            eureka.client.enabled: 'true'
+            eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka
+
+    package-delivery-service:
+        image: imskabbineni/package-service:build1
+        ports:
+            -   9005:8996
+        depends_on:
+            -   discovery-service
+            -   config-service
+            -   auth-service
+        environment:
+            eureka.client.enabled: 'true'
+            eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka

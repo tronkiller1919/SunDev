@@ -41,5 +41,5 @@
     <button type="button" value="Confirm Order" (click)="confirmOrder()" class="btn btn-order">Place order</button>
     <button type="button" class="btn btn-edit-order" [disabled]="orderPlaced" (click)="editOrder()">Edit order</button>
   </div>
-  <p class="order-status">{{ !orderPlaced ? '' : "Your order was placed successfuly!! Sit back an relax we'll do the rest" }}</p>
-</div>
+  <p class="order-status">{{ !orderPlaced ? '' : processedComponentData.message }}</p>
+  </div>
